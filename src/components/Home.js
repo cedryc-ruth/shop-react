@@ -5,7 +5,7 @@ import './styles.css';
 
 faker.seed(100);
 
-const Home = () => {
+const Home = (props) => {
     const productsArray = [...Array(20)].map(()=>({
         id:faker.datatype.uuid(),
         name:faker.commerce.productName(),
@@ -14,7 +14,9 @@ const Home = () => {
     }));
     
     //console.log(productsArray);
-    const [cart,setCart] = useState([]);
+    const cart = props.cart;
+    const setCart = props.setCart;
+
     console.log(cart);
     const [products] = useState(productsArray);
 
