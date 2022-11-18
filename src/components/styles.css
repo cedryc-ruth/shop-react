@@ -5,6 +5,11 @@
     margin: 10px 0;
  }
 
+ nav a {
+   color: white;
+   text-decoration: none;
+ }
+
  .nav {
     display: flex;
     list-style: none;
