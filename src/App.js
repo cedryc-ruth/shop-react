@@ -8,15 +8,14 @@ import NoPage from './components/NoPage';
 import { useState } from 'react';
 
 function App() {
-  const [cart,setCart] = useState([]);
 
   return (
     <BrowserRouter>
       
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home cart={cart} setCart={setCart} />} exact />
-          <Route path='/Cart' element={<Cart cart={cart} setCart={setCart} />} />
+          <Route index element={<Home />} exact />
+          <Route path='/Cart' element={<Cart />} />
           <Route path='*' element={<NoPage />} />
         </Route>
       </Routes>

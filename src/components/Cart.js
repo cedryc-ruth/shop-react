@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
+import { CartContext } from '../Context';
 
-const Cart = (props) => {
-    const cart = props.cart;
-    const setCart = props.setCart;
-
+const Cart = () => {
+    const {cart} = useContext(CartContext);
     const [total, setTotal] = useState();
 
     useEffect(() => {
         setTotal(cart.reduce((acc, curr)=> acc + Number(curr.price),0));
     },[cart]);
 
-    return <div>{console.log(props.cart)}
+    return <div>{console.log(cart)}
         <span style={{ fontSize: 30 }}>My Cart</span>
         <span style={{ fontSize: 30 }}>Total: {total}&nbsp;€</span>
         <div className="productContainer">
             {cart.map((prod) => (
-                <SingleProduct prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+                <SingleProduct prod={prod} key={prod.id} />
             ))}
         </div>
     </div>;
